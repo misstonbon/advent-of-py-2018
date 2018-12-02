@@ -1,5 +1,4 @@
 import collections
-from itertools import combinations
 
 with open('daytwo.txt', 'r') as file:
     content = file.readlines()
@@ -16,9 +15,9 @@ three_times = set()
 
 for key in counts:
     for letter, count in counts[key].items():
-        if count == 2 and key not in twice:
+        if count == 2:
             twice.add(key)
-        if count == 3  and key not in three_times:
+        if count == 3:
             three_times.add(key)
 
 checksum = len(twice) * len(three_times)
