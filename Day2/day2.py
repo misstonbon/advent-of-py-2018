@@ -19,7 +19,6 @@ for key in counts:
             twice.add(key)
         if count == 3  and key not in three_times:
             three_times.add(key)
-        # print('%s: %7d' % (letter, count))
 
 checksum = len(twice) * len(three_times)
 print( checksum) #7470
