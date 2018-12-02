@@ -1,4 +1,5 @@
 import collections
+from itertools import combinations
 
 with open('daytwo.txt', 'r') as file:
     content = file.readlines()
@@ -21,7 +22,24 @@ for key in counts:
             three_times.add(key)
 
 checksum = len(twice) * len(three_times)
-print( checksum) #7470
+print(checksum) #7470
 
-print(len(twice))
-print(len(three_times))
+sameSame = []
+
+words = list(counts.keys())
+
+def oneAway(str1, str2):
+    difference = 0
+    for i in range(0, len(str1)):
+        if str1[i] != str2[i]:
+            difference += 1
+    return difference
+
+for i in range(len(words)):
+    for j in range(i+1, len(words) - 1 ):
+        if oneAway(words[i], words[j]) == 1 and len(words[i]) == len(words[j]):
+            sameSame.append(words[i])
+            sameSame.append(words[j])
+     
+print(sameSame)
+# kqzxdenujwcstybmgvyiofrrd
